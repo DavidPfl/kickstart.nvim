@@ -734,7 +734,7 @@ require('lazy').setup({
 
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = false,
+        automatic_installation = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
@@ -1035,9 +1035,11 @@ require('lazy').setup({
           enable = true,
           swap_next = {
             ['<leader>a'] = '@parameter.inner',
+            ['<leader>m'] = '@function.outer',
           },
           swap_previous = {
             ['<leader>A'] = '@parameter.inner',
+            ['<leader>M'] = '@function.outer',
           },
         },
       },
@@ -1097,7 +1099,6 @@ require('lazy').setup({
     },
   },
 })
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 --
